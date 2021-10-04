@@ -55,3 +55,23 @@ float operator*(Vector2D &lhs, Vector2D &rhs)
 {
   return (lhs.x * rhs.x + lhs.y * rhs.y);
 }
+
+/*Vector2D operator*(Vector2D &otherVector, float value)
+{
+  Vector2D result(otherVector.x * value, otherVector.y * value);
+  return result;
+}*/
+
+Vector2D &Vector2D::operator*=(float value)
+{
+  x *= value;
+  y *= value;
+  return *this;
+}
+
+Vector2D &Vector2D::operator/=(float value)
+{
+  x /= value;
+  y /= value;
+  return *this;
+}

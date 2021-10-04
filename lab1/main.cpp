@@ -10,6 +10,9 @@ int main()
   vecB.view();
   vecC.view();
 
+  //strange scaling(look for it later)
+  /*vecA = vecA * 2;
+  vecA.view();*/
 
   /*float a = vecA * vecB;
   cout << a << endl;*/

@@ -15,6 +15,8 @@ class Vector2D {
 
   Vector2D &operator+=(Vector2D &otherVector);
   Vector2D &operator-=(Vector2D &otherVector);
+  Vector2D &operator*=(float value);
+  Vector2D &operator/=(float value);
 
 
  private:
@@ -24,6 +26,7 @@ class Vector2D {
   friend Vector2D operator+(Vector2D &lhs, Vector2D &rhs);
   friend Vector2D operator-(Vector2D &lhs, Vector2D &rhs);
   friend float operator*(Vector2D &lhs, Vector2D &rhs);
+  //friend Vector2D operator*(Vector2D &otherVector, float value);
 
 
 };
