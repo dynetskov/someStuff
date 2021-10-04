@@ -13,9 +13,18 @@ class Vector2D {
 
   void view();
 
+  Vector2D &operator+=(Vector2D &otherVector);
+  Vector2D &operator-=(Vector2D &otherVector);
+
+
  private:
+
   float x;
   float y;
+  friend Vector2D operator+(Vector2D &lhs, Vector2D &rhs);
+  friend Vector2D operator-(Vector2D &lhs, Vector2D &rhs);
+  friend float operator*(Vector2D &lhs, Vector2D &rhs);
+
 
 };
 
