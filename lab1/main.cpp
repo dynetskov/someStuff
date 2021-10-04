@@ -5,7 +5,6 @@ int main()
   Vector2D vecA;
   Vector2D vecB(6, 8);
   Vector2D vecC = vecB + vecA;
-
   vecA.view();
   vecB.view();
   vecC.view();

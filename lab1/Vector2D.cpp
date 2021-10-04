@@ -23,6 +23,12 @@ void Vector2D::view()
   cout << x << " " << y << endl;
 }
 
+void Vector2D::reverse()
+{
+  x = -x;
+  y = -y;
+}
+
 Vector2D &Vector2D::operator+=(Vector2D &otherVector)
 {
   x += otherVector.x;
