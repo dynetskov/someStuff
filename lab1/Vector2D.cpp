@@ -81,3 +81,10 @@ Vector2D &Vector2D::operator/=(float value)
   y /= value;
   return *this;
 }
+
+Vector2D &Vector2D::operator=(Vector2D const &otherVector)
+{
+  x = otherVector.x;
+  y = otherVector.y;
+  return *this;
+}

@@ -18,6 +18,7 @@ class Vector2D {
   Vector2D &operator-=(Vector2D &otherVector);
   Vector2D &operator*=(float value);
   Vector2D &operator/=(float value);
+  Vector2D &operator=(Vector2D const &otherVector);
 
  private:
 
