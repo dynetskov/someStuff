@@ -29,6 +29,15 @@ void Vector2D::reverse()
   y = -y;
 }
 
+void Vector2D::rotate(float angle)
+{
+  float xRot = x*cos(angle)-y*sin(angle);
+  float yRot = x*sin(angle)+y*cos(angle);
+
+  x = xRot;
+  y = yRot;
+}
+
 float Vector2D::normal()
 {
   return sqrt(x*x+y*y);

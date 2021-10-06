@@ -14,6 +14,7 @@ class Vector2D {
 
   void view();
   void reverse();
+  void rotate(float angle);
   float normal();
   Vector2D normalize();
 

@@ -10,9 +10,12 @@ int main()
   vecB.view();
   vecC.view();
 
-  float x = vecA.normal();
+  /*vecA.rotate(76*2*M_PI/360);
+  vecA.view();*/
+
+  /*float x = vecA.normal();
   float y = vecC.normal();
-  cout << x << endl << y << endl;
+  cout << x << endl << y << endl;*/
 
   /*
   Vector2D vecC = vecA.normalize();
