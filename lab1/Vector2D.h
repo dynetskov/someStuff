@@ -2,6 +2,7 @@
 #define _VECTOR2D_H_
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 class Vector2D {
@@ -13,6 +14,7 @@ class Vector2D {
 
   void view();
   void reverse();
+  Vector2D normalize();
 
   Vector2D &operator+=(Vector2D &otherVector);
   Vector2D &operator-=(Vector2D &otherVector);

@@ -29,6 +29,17 @@ void Vector2D::reverse()
   y = -y;
 }
 
+Vector2D Vector2D::normalize()
+{
+  float normal = sqrt(x*x+y*y);
+  float xNorm = x/normal;
+  float yNorm = y/normal;
+
+  Vector2D normalizedVector(xNorm, yNorm);
+
+  return normalizedVector;
+}
+
 Vector2D &Vector2D::operator+=(Vector2D &otherVector)
 {
   x += otherVector.x;
@@ -59,7 +70,7 @@ Vector2D operator-(Vector2D &lhs, Vector2D &rhs)
 
 float operator*(Vector2D &lhs, Vector2D &rhs)
 {
-  return (lhs.x * rhs.x + lhs.y * rhs.y);
+  return (lhs.x*rhs.x+lhs.y*rhs.y);
 }
 
 /*Vector2D operator*(Vector2D &otherVector, float value)
