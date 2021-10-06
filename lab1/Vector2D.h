@@ -14,7 +14,9 @@ class Vector2D {
 
   void view();
   void reverse();
+  float normal();
   Vector2D normalize();
+
 
   Vector2D &operator+=(Vector2D &otherVector);
   Vector2D &operator-=(Vector2D &otherVector);

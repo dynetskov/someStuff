@@ -29,11 +29,16 @@ void Vector2D::reverse()
   y = -y;
 }
 
+float Vector2D::normal()
+{
+  return sqrt(x*x+y*y);
+}
+
 Vector2D Vector2D::normalize()
 {
-  float normal = sqrt(x*x+y*y);
-  float xNorm = x/normal;
-  float yNorm = y/normal;
+  float value = normal();
+  float xNorm = x/value;
+  float yNorm = y/value;
 
   Vector2D normalizedVector(xNorm, yNorm);
 

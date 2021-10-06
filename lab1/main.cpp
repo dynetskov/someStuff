@@ -4,11 +4,15 @@ int main()
 {
   Vector2D vecA;
   Vector2D vecB(6, 8);
-  Vector2D vecC = vecB;
+  Vector2D vecC = vecB.normalize();
 
   vecA.view();
   vecB.view();
   vecC.view();
+
+  float x = vecA.normal();
+  float y = vecC.normal();
+  cout << x << endl << y << endl;
 
   /*
   Vector2D vecC = vecA.normalize();
