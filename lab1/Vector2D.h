@@ -11,6 +11,7 @@ class Vector2D {
   Vector2D();
   Vector2D(float _x, float _y);
   Vector2D(Vector2D &otherVector);
+  ~Vector2D();
 
   void view();
   void setX(float value);
@@ -33,10 +34,10 @@ class Vector2D {
 
   float x;
   float y;
+
   friend Vector2D operator+(Vector2D &lhs, Vector2D &rhs);
   friend Vector2D operator-(Vector2D &lhs, Vector2D &rhs);
   friend float operator*(Vector2D &lhs, Vector2D &rhs);
-  //friend Vector2D operator*(Vector2D &otherVector, float value);
 };
 
 #endif
