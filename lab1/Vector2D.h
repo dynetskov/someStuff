@@ -13,17 +13,21 @@ class Vector2D {
   Vector2D(Vector2D &otherVector);
 
   void view();
+  void setX(float value);
+  void setY(float value);
+  float getX();
+  float getY();
   void reverse();
   void rotate(float angle);
   float normal();
   Vector2D normalize();
-
 
   Vector2D &operator+=(Vector2D &otherVector);
   Vector2D &operator-=(Vector2D &otherVector);
   Vector2D &operator*=(float value);
   Vector2D &operator/=(float value);
   Vector2D &operator=(Vector2D const &otherVector);
+  float &operator[](int index);
 
  private:
 

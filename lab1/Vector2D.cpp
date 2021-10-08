@@ -12,15 +12,34 @@ Vector2D::Vector2D(float _x, float _y) :
 
 }
 
-Vector2D::Vector2D(Vector2D &otherVector)
+Vector2D::Vector2D(Vector2D &otherVector) :
+    x(otherVector.x), y(otherVector.y)
 {
-  x = (otherVector.x);
-  y = (otherVector.y);
+
 }
 
 void Vector2D::view()
 {
   cout << x << " " << y << endl;
+}
+
+void Vector2D::setX(float value)
+{
+  x = value;
+}
+
+void Vector2D::setY(float value)
+{
+  y = value;
+}
+
+float Vector2D::getX()
+{
+  return x;
+}
+float Vector2D::getY()
+{
+  return y;
 }
 
 void Vector2D::reverse()
@@ -112,4 +131,15 @@ Vector2D &Vector2D::operator=(Vector2D const &otherVector)
   x = otherVector.x;
   y = otherVector.y;
   return *this;
+}
+
+float &Vector2D::operator[](int index)
+{
+  switch (index)
+    {
+      case 0:
+        return x;
+      case 1:
+        return y;
+    }
 }

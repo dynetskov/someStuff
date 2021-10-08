@@ -10,6 +10,17 @@ int main()
   vecB.view();
   vecC.view();
 
+  float value = vecA[1];
+  cout << value << endl;
+
+  vecA[0] = value;
+  vecA.view();
+
+  cout << vecB.getX() << endl;
+  vecB.setX(10);
+  cout << vecB.getX() << endl;
+
+
   /*vecA.rotate(76*2*M_PI/360);
   vecA.view();*/
 
