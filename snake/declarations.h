@@ -3,5 +3,7 @@
 
 #include <iostream>
 #include <raylib.h>
+#include <vector>
+
 
 #endif //SNAKE_DECLARATIONS_H
