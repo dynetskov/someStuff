@@ -4,6 +4,6 @@
 #include <iostream>
 #include <raylib.h>
 #include <vector>
-
+#include <list>
 
 #endif //SNAKE_DECLARATIONS_H
