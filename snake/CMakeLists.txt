@@ -3,4 +3,9 @@ project(snake)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(snake main.cpp)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mwindows")
+set(raylib_dir d:/manualLibraries/raylib)
+
+add_executable(${PROJECT_NAME} main.cpp main_body.cpp main_body.h declarations.h)
+target_include_directories(${PROJECT_NAME} PUBLIC ${raylib_dir}/include)
+target_link_libraries(${PROJECT_NAME} ${raylib_dir}/libraylib.a -lopengl32 -lgdi32 -lwinmm)
