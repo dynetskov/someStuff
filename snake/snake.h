@@ -2,6 +2,7 @@
 #define SNAKE_SNAKE_H
 
 #include "declarations.h"
+#include "food.h"
 
 namespace Snake
 {

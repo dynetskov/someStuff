@@ -16,6 +16,7 @@ void initGame()
     direction dir = DIR_LEFT;
 
     Snake::snake snake(winWidth, winHeight, snakeSize);
+    Food::food food(200, 200, snakeSize, YELLOW);
 
     while (!WindowShouldClose())
     {
@@ -39,6 +40,7 @@ void initGame()
 
         drawMap(winWidth, winHeight, 5.0f, GRAY);
         snake.draw();
+        food.draw();
 
         DrawFPS(10, 10);
         EndDrawing();

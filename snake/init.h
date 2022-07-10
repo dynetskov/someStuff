@@ -3,6 +3,7 @@
 
 #include "declarations.h"
 #include "snake.h"
+#include "food.h"
 
 void initGame();
 inline void drawMap(int w, int h, float line, Color color);
