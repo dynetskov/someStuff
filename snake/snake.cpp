@@ -18,6 +18,26 @@ namespace Snake //class snake
         for (auto &el: body)
             el.draw();
     }
+
+    void snake::move(Vector2 &direction)
+    {
+        Vector2 next;
+        Vector2 prev;
+
+        next.x = direction.x+body.front().getX();
+        next.y = direction.y+body.front().getY();
+
+        for (auto &el: body)
+        {
+            prev.x = el.getX();
+            prev.y = el.getY();
+            el.move(next);
+
+            next.x = prev.x;
+            next.y = prev.y;
+        }
+
+    }
 }
 
 
@@ -38,8 +58,19 @@ namespace Snake //class body_part
         DrawRectangleLinesEx(Rectangle{posX, posY, size, size}, 3, color);
     }
 
-    void bodyPart::move()
+    void bodyPart::move(Vector2 &pos)
     {
+        posX = pos.x;
+        posY = pos.y;
+    }
 
+    float bodyPart::getX() const
+    {
+        return posX;
+    }
+
+    float bodyPart::getY() const
+    {
+        return posY;
     }
 }

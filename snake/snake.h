@@ -12,7 +12,10 @@ namespace Snake
         ~bodyPart();
 
         void draw();
-        void move();
+        void move(Vector2 &pos);
+
+        float getX() const;
+        float getY() const;
 
     private:
         float posX;
@@ -28,7 +31,7 @@ namespace Snake
         ~snake();
 
         void draw();
-        void move();
+        void move(Vector2 &direction);
 
     private:
         std::list<bodyPart> body;
