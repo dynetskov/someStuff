@@ -32,6 +32,7 @@ namespace Snake
 
         void draw();
         void move(Vector2 &direction);
+        void add(direction dir);
 
     private:
         std::list<bodyPart> body;

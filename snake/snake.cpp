@@ -36,7 +36,47 @@ namespace Snake //class snake
             next.x = prev.x;
             next.y = prev.y;
         }
+    }
 
+    void snake::add(direction dir)
+    {
+        if (body.begin() == body.end())
+            return;
+
+        auto it = body.end();
+        it--;
+
+        float x = it->getX();
+        float y = it->getY();
+
+        if (it != body.begin())
+        {
+            std::cout << "if" << std::endl;
+            it--;
+
+            x += x-it->getX();
+            y += y-it->getY();
+        } else
+        {
+            std::cout << "else" << std::endl;
+            switch (dir)
+            {
+                case DIR_UP:
+                    y += size;
+                    break;
+                case DIR_DOWN:
+                    y -= size;
+                    break;
+                case DIR_LEFT:
+                    x += size;
+                    break;
+                case DIR_RIGHT:
+                    x -= size;
+                    break;
+            }
+        }
+
+        body.emplace_back(size, color, x, y);
     }
 }
 

@@ -9,24 +9,30 @@ void initGame()
     SetTargetFPS(60);
 
     float snakeSize = 25.0f;
-    Vector2 speed{-snakeSize, 0};
     bool canMove = false;
+    bool add = false;
     float timePassed = 0.0f;
+    Vector2 speed{-snakeSize, 0};
+    direction dir = DIR_LEFT;
 
     Snake::snake snake(winWidth, winHeight, snakeSize);
 
     while (!WindowShouldClose())
     {
         if (canMove)
-            checkDir(snakeSize, speed, canMove);
+            checkKeys(snakeSize, speed, canMove, dir);
+
+        if (IsKeyPressed(KEY_A))
+            snake.add(dir);
 
         timePassed += GetFrameTime();
-        if (timePassed >= 1.5f)
+        if (timePassed >= 1.0f)
         {
             canMove = true;
             snake.move(speed);
             timePassed = 0.0f;
         }
+
 
         BeginDrawing();
         ClearBackground(BLACK);
@@ -39,7 +45,7 @@ void initGame()
     }
 }
 
-void drawMap(int w, int h, float line, Color color)
+inline void drawMap(int w, int h, float line, Color color)
 {
     Rectangle rec;
     rec.height = static_cast<float>(h)-100;
@@ -47,13 +53,11 @@ void drawMap(int w, int h, float line, Color color)
     rec.x = static_cast<float>(w)/2-rec.width/2;
     rec.y = static_cast<float>(h)/2-rec.height/2;
 
-
     DrawRectangleLinesEx(rec, line, color);
 }
 
-void checkDir(float &size, Vector2 &speed, bool &canMove)
+void checkKeys(float &size, Vector2 &speed, bool &canMove, direction &dir)
 {
-    static direction dir = DIR_LEFT;
 
     if ((dir != DIR_RIGHT) && (dir != DIR_LEFT))
     {

@@ -4,16 +4,8 @@
 #include "declarations.h"
 #include "snake.h"
 
-enum direction
-{
-    DIR_UP,
-    DIR_DOWN,
-    DIR_LEFT,
-    DIR_RIGHT,
-};
-
 void initGame();
-void drawMap(int w, int h, float line, Color color);
-void checkDir(float &size, Vector2 &speed, bool &canMove);
+inline void drawMap(int w, int h, float line, Color color);
+void checkKeys(float &size, Vector2 &speed, bool &canMove, direction &dir);
 
 #endif //SNAKE_INIT_H

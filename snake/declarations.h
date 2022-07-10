@@ -7,4 +7,12 @@
 #include <list>
 #include <memory>
 
+enum direction
+{
+    DIR_UP,
+    DIR_DOWN,
+    DIR_LEFT,
+    DIR_RIGHT,
+};
+
 #endif //SNAKE_DECLARATIONS_H
