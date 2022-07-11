@@ -10,31 +10,31 @@ public:
         : posX(_x), posY(_y), color(_color)
     {
     }
-
+public:
     virtual void move(Vector2 &pos)
     {
         posX = pos.x;
         posY = pos.y;
     }
-
+public:
     virtual float getX() const
     {
         return posX;
     }
-
+public:
     virtual float getY() const
     {
         return posY;
     }
-
+public:
     virtual bool isSnake()
     {
         return false;
     }
-
+public:
     virtual void draw() = 0;
 
-private:
+protected:
     float posX;
     float posY;
     Color color;

@@ -3,14 +3,19 @@
 namespace Snake //class snake
 {
     snake::snake(int _x, int _y, float _size, Color _color)
-            : size{_size}, color{_color}
+            : gameObject(static_cast<float>(_x)/2-_size/2, static_cast<float>(_y)/2-_size/2), size{_size}
     {
-        body.emplace_back(size, color, static_cast<float>(_x)/2-size/2, static_cast<float>(_y)/2-size/2);
+        body.emplace_back(size, color, posX, posY);
     }
 
     snake::~snake()
     {
         std::cout << "Snake Deleted" << std::endl;
+    }
+
+    bool snake::isSnake()
+    {
+        return true;
     }
 
     void snake::draw()
@@ -100,7 +105,7 @@ namespace Snake //class snake
 namespace Snake //class body_part
 {
     bodyPart::bodyPart(float &_size, Color &_color, float _x, float _y)
-            : size(_size), color(_color), posX(_x), posY(_y)
+            : gameObject(_x, _y, _color), size(_size)
     {
     }
 
@@ -114,19 +119,19 @@ namespace Snake //class body_part
         DrawRectangleLinesEx(Rectangle{posX, posY, size, size}, 3, color);
     }
 
-    void bodyPart::move(Vector2 &pos)
+    /*void bodyPart::move(Vector2 &pos)
     {
         posX = pos.x;
         posY = pos.y;
-    }
+    }*/
 
-    float bodyPart::getX() const
+    /*float bodyPart::getX() const
     {
         return posX;
-    }
+    }*/
 
-    float bodyPart::getY() const
+    /*float bodyPart::getY() const
     {
         return posY;
-    }
+    }*/
 }
