@@ -34,6 +34,9 @@ namespace Snake
         void draw();
         void move(Vector2 &direction);
         void add(direction dir);
+        bool checkFoodCollision(const Food::food &food, std::list<bodyPart>::iterator &it);
+        bool foodHeadCollision(const Food::food &food);
+        bool foodBodyCollision(const Food::food &food);
 
     private:
         std::list<bodyPart> body;

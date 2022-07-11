@@ -78,6 +78,22 @@ namespace Snake //class snake
 
         body.emplace_back(size, color, x, y);
     }
+
+    bool snake::checkFoodCollision(const Food::food &food, std::list<bodyPart>::iterator &it)
+    {
+        //auto head = body.begin();
+
+        return CheckCollisionRecs(Rectangle{it->getX(), it->getY(), size, size},
+                                  Rectangle{food.getX(), food.getY(), food.getSize(), food.getSize()});
+    }
+
+    bool snake::foodHeadCollision(const Food::food &food)
+    {
+        auto head = body.begin();
+
+        return checkFoodCollision(food, head);
+    }
+
 }
 
 

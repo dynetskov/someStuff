@@ -8,10 +8,17 @@ void initGame()
     InitWindow(winWidth, winHeight, "Snake");
     SetTargetFPS(60);
 
+    int score = 0;
+    std::string textScore;
+
     float snakeSize = 25.0f;
+
     bool canMove = false;
     bool add = false;
+
     float timePassed = 0.0f;
+    float timeSpeed = 0.8f;
+
     Vector2 speed{-snakeSize, 0};
     direction dir = DIR_LEFT;
 
@@ -27,13 +34,21 @@ void initGame()
             snake.add(dir);
 
         timePassed += GetFrameTime();
-        if (timePassed >= 1.0f)
+        if (timePassed >= timeSpeed)
         {
             canMove = true;
-            snake.move(speed);
             timePassed = 0.0f;
-        }
+            snake.move(speed);
 
+            if (snake.foodHeadCollision(food))
+            {
+                ++score;
+                snake.add(dir);
+
+
+                timeSpeed -= timeSpeed*0.1f;
+            }
+        }
 
         BeginDrawing();
         ClearBackground(BLACK);
@@ -41,6 +56,9 @@ void initGame()
         drawMap(winWidth, winHeight, 5.0f, GRAY);
         snake.draw();
         food.draw();
+
+        textScore = TextFormat("Score: %i", score);
+        DrawText(textScore.c_str(), winWidth/2-MeasureText(textScore.c_str(), 20), 5, 20, LIGHTGRAY);
 
         DrawFPS(10, 10);
         EndDrawing();
