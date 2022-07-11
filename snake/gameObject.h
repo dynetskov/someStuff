@@ -6,33 +6,39 @@
 class gameObject
 {
 public:
+    virtual void draw() = 0;
+    virtual float getSize() const = 0;
+
     explicit gameObject(float _x = 0, float _y = 0, Color _color = RAYWHITE)
         : posX(_x), posY(_y), color(_color)
     {
     }
-public:
+
     virtual void move(Vector2 &pos)
     {
         posX = pos.x;
         posY = pos.y;
     }
-public:
+
     virtual float getX() const
     {
         return posX;
     }
-public:
+
     virtual float getY() const
     {
         return posY;
     }
-public:
+
     virtual bool isSnake()
     {
         return false;
     }
-public:
-    virtual void draw() = 0;
+
+    virtual bool isFood()
+    {
+        return false;
+    }
 
 protected:
     float posX;

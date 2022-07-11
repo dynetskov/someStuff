@@ -13,16 +13,10 @@ namespace Snake
         ~bodyPart();
 
         void draw() override;
-        //void move(Vector2 &pos);
-
-        //float getX() const;
-        //float getY() const;
+        float getSize() const override;
 
     private:
-        //float posX;
-        //float posY;
-        //Color &color;
-        float &size;
+        float size;
     };
 
     class snake : public gameObject
@@ -36,6 +30,7 @@ namespace Snake
         void draw() override;
         void move(Vector2 &direction) override;
         void add(direction dir);
+        float getSize() const override;
 
         bool checkFoodCollision(const Food::food &food, std::list<bodyPart>::iterator &it);
         bool foodHeadCollision(const Food::food &food);

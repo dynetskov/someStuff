@@ -17,18 +17,12 @@ namespace Food
         food(const food &obj) = delete;
 
         void draw() override;
-        //void move(Vector2 &pos);
+        float getSize() const override;
 
-
-        //float getX() const;
-        //float getY() const;
-        float getSize() const;
+        bool isFood() override;
 
     private:
-        //float posX;
-        //float posY;
         float size;
-        //Color color;
     };
 } // Food
 

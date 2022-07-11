@@ -84,6 +84,11 @@ namespace Snake //class snake
         body.emplace_back(size, color, x, y);
     }
 
+    float snake::getSize() const
+    {
+        return size;
+    }
+
     bool snake::checkFoodCollision(const Food::food &food, std::list<bodyPart>::iterator &it)
     {
         //auto head = body.begin();
@@ -119,19 +124,8 @@ namespace Snake //class body_part
         DrawRectangleLinesEx(Rectangle{posX, posY, size, size}, 3, color);
     }
 
-    /*void bodyPart::move(Vector2 &pos)
+    float bodyPart::getSize() const
     {
-        posX = pos.x;
-        posY = pos.y;
-    }*/
-
-    /*float bodyPart::getX() const
-    {
-        return posX;
-    }*/
-
-    /*float bodyPart::getY() const
-    {
-        return posY;
-    }*/
+        return size;
+    }
 }
