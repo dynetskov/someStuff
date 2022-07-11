@@ -2,8 +2,8 @@
 
 namespace Snake //class snake
 {
-    snake::snake(int _x, int _y, float _size, Color _color)
-            : gameObject(static_cast<float>(_x)/2-_size/2, static_cast<float>(_y)/2-_size/2), size{_size}
+    snake::snake(float _x, float _y, float _size, Color _color)
+            : gameObject(_x/2-_size/2, _y/2-_size/2), size{_size}
     {
         body.emplace_back(size, color, posX, posY);
     }

@@ -3,6 +3,7 @@
 
 #include "declarations.h"
 #include "gameObject.h"
+#include "map.h"
 
 namespace Food
 {
@@ -17,6 +18,7 @@ namespace Food
         food(const food &obj) = delete;
 
         void draw() override;
+        void replace(const gameObject &snake, const map &map);
         float getSize() const override;
 
         bool isFood() override;

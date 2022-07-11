@@ -22,7 +22,7 @@ namespace Snake
     class snake : public gameObject
     {
     public:
-        snake(int _x, int _y, float _size = 25.0f, Color _color = RAYWHITE);
+        snake(float _x, float _y, float _size = 25.0f, Color _color = RAYWHITE);
         ~snake();
 
         bool isSnake() override;

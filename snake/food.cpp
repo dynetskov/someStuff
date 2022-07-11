@@ -12,6 +12,16 @@ namespace Food
         DrawRectangleLinesEx(Rectangle{posX, posY, size, size}, 3.0f, color);
     }
 
+    void food::replace(const gameObject &snake, const map &mao)
+    {
+        float new_x;
+        float new_y;
+
+        std::random_device rd;
+        std::default_random_engine eng(rd());
+
+    }
+
     float food::getSize() const
     {
         return size;

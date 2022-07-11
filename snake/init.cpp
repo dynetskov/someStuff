@@ -2,8 +2,13 @@
 
 void initGame()
 {
-    int winHeight = 720;
     int winWidth = 1280;
+    int winHeight = 720;
+
+    float mapWidth = static_cast<float>(winWidth)-200;
+    float mapHeight = static_cast<float>(winHeight)-100;
+    float mapX = static_cast<float>(winWidth)/2-mapWidth/2;
+    float mapY = static_cast<float>(winHeight)/2-mapHeight/2;
 
     InitWindow(winWidth, winHeight, "Snake");
     SetTargetFPS(60);
@@ -22,6 +27,7 @@ void initGame()
     Vector2 speed{-snakeSize, 0};
     direction dir = DIR_LEFT;
 
+    map map(mapX, mapY, Vector2{mapWidth, mapHeight}, GRAY);
     Snake::snake snake(winWidth, winHeight, snakeSize);
     Food::food food(200, 200, snakeSize, YELLOW);
 
@@ -53,7 +59,7 @@ void initGame()
         BeginDrawing();
         ClearBackground(BLACK);
 
-        drawMap(winWidth, winHeight, 5.0f, GRAY);
+        map.draw();
         snake.draw();
         food.draw();
 
