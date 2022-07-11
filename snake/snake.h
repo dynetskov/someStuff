@@ -28,7 +28,7 @@ namespace Snake
         bool isSnake() override;
 
         void draw() override;
-        void move(Vector2 &direction) override;
+        void move(Vector2 direction) override;
         void add(direction dir);
         float getSize() const override;
 

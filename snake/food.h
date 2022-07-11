@@ -18,7 +18,7 @@ namespace Food
         food(const food &obj) = delete;
 
         void draw() override;
-        void replace(const gameObject &snake, const map &map);
+        void replace(gameObject &snake, const map &map);
         float getSize() const override;
 
         bool isFood() override;

@@ -14,7 +14,7 @@ public:
     {
     }
 
-    virtual void move(Vector2 &pos)
+    virtual void move(Vector2 pos)
     {
         posX = pos.x;
         posY = pos.y;

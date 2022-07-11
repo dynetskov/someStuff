@@ -4,9 +4,9 @@
 #include "declarations.h"
 #include "snake.h"
 #include "food.h"
+#include "map.h"
 
 void initGame();
-inline void drawMap(int w, int h, float line, Color color);
 void checkKeys(float &size, Vector2 &speed, bool &canMove, direction &dir);
 
 #endif //SNAKE_INIT_H

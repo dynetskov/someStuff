@@ -2,11 +2,11 @@
 
 void initGame()
 {
-    int winWidth = 1280;
-    int winHeight = 720;
+    int winWidth = 1285;
+    int winHeight = 735;
 
-    float mapWidth = static_cast<float>(winWidth)-200;
-    float mapHeight = static_cast<float>(winHeight)-100;
+    float mapWidth = static_cast<float>(winWidth)-600;
+    float mapHeight = static_cast<float>(winHeight)-300;
     float mapX = static_cast<float>(winWidth)/2-mapWidth/2;
     float mapY = static_cast<float>(winHeight)/2-mapHeight/2;
 
@@ -29,7 +29,8 @@ void initGame()
 
     map map(mapX, mapY, Vector2{mapWidth, mapHeight}, GRAY);
     Snake::snake snake(winWidth, winHeight, snakeSize);
-    Food::food food(200, 200, snakeSize, YELLOW);
+    Food::food food(0, 0, snakeSize, YELLOW);
+    food.replace(snake, map);
 
     while (!WindowShouldClose())
     {
@@ -50,7 +51,7 @@ void initGame()
             {
                 ++score;
                 snake.add(dir);
-
+                food.replace(snake, map);
 
                 timeSpeed -= timeSpeed*0.1f;
             }
@@ -69,17 +70,6 @@ void initGame()
         DrawFPS(10, 10);
         EndDrawing();
     }
-}
-
-inline void drawMap(int w, int h, float line, Color color)
-{
-    Rectangle rec;
-    rec.height = static_cast<float>(h)-100;
-    rec.width = static_cast<float>(w)-200;
-    rec.x = static_cast<float>(w)/2-rec.width/2;
-    rec.y = static_cast<float>(h)/2-rec.height/2;
-
-    DrawRectangleLinesEx(rec, line, color);
 }
 
 void checkKeys(float &size, Vector2 &speed, bool &canMove, direction &dir)

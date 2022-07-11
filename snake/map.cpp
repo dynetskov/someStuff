@@ -10,7 +10,7 @@ map::~map()
     std::cout << "map deleted" << std::endl;
 }
 
-Vector2 map::getSize()
+Vector2 map::getMapSize() const
 {
     return size;
 }

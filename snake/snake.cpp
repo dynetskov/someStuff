@@ -24,7 +24,7 @@ namespace Snake //class snake
             el.draw();
     }
 
-    void snake::move(Vector2 &direction)
+    void snake::move(Vector2 direction)
     {
         Vector2 next;
         Vector2 prev;
@@ -104,6 +104,20 @@ namespace Snake //class snake
         return checkFoodCollision(food, head);
     }
 
+    bool snake::foodBodyCollision(const Food::food &food)
+    {
+        auto it = body.begin();
+
+        while (it != body.end())
+        {
+            if (checkFoodCollision(food, it))
+                return true;
+
+            it++;
+        }
+
+        return false;
+    }
 }
 
 

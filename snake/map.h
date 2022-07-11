@@ -11,7 +11,7 @@ public:
     ~map();
 
     void draw() override;
-    Vector2 getSize();
+    Vector2 getMapSize() const;
 
 private:
     Vector2 size;
