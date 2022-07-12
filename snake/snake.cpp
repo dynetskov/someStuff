@@ -3,7 +3,7 @@
 namespace Snake //class snake
 {
     snake::snake(float _x, float _y, float _size, Color _color)
-            : gameObject(_x/2-_size/2, _y/2-_size/2), size{_size}
+            : gameObject(_x/2-_size/2, _y/2-_size/2, _color), size{_size}
     {
         body.emplace_back(size, color, posX, posY);
     }
@@ -41,6 +41,9 @@ namespace Snake //class snake
             next.x = prev.x;
             next.y = prev.y;
         }
+
+        posX = body.front().getX();
+        posY = body.front().getY();
     }
 
     void snake::add(direction dir)
@@ -89,28 +92,28 @@ namespace Snake //class snake
         return size;
     }
 
-    bool snake::checkFoodCollision(const Food::food &food, std::list<bodyPart>::iterator &it)
+    bool snake::collision(const gameObject &obj, std::list<bodyPart>::iterator &it)
     {
         //auto head = body.begin();
 
         return CheckCollisionRecs(Rectangle{it->getX(), it->getY(), size, size},
-                                  Rectangle{food.getX(), food.getY(), food.getSize(), food.getSize()});
+                                  Rectangle{obj.getX(), obj.getY(), obj.getSize(), obj.getSize()});
     }
 
-    bool snake::foodHeadCollision(const Food::food &food)
+    bool snake::headCollision(const gameObject &obj)
     {
         auto head = body.begin();
 
-        return checkFoodCollision(food, head);
+        return collision(obj, head);
     }
 
-    bool snake::foodBodyCollision(const Food::food &food)
+    bool snake::bodyCollision(const gameObject &obj)
     {
         auto it = body.begin();
 
         while (it != body.end())
         {
-            if (checkFoodCollision(food, it))
+            if (collision(obj, it))
                 return true;
 
             it++;

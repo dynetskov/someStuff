@@ -16,7 +16,7 @@ namespace Food
     void food::replace(gameObject &snake, const map &map)
     {
         if (!snake.isSnake())
-            return;
+            throw std::logic_error("Invalid object type in method mapCollision. Should be Snake type");
 
 
         auto cast_snake = dynamic_cast<Snake::snake*>(&snake);
@@ -36,7 +36,7 @@ namespace Food
             new_x = dist_x(eng)*size+map.getX()+5;
             new_y = dist_y(eng)*size+map.getY()+5;
             move(Vector2{new_x, new_y});
-        } while (cast_snake->foodBodyCollision(*this));
+        } while (cast_snake->bodyCollision(*this));
     }
 
     float food::getSize() const

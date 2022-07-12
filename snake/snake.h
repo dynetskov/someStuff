@@ -2,7 +2,7 @@
 #define SNAKE_SNAKE_H
 
 #include "declarations.h"
-#include "food.h"
+#include "gameObject.h"
 
 namespace Snake
 {
@@ -32,9 +32,9 @@ namespace Snake
         void add(direction dir);
         float getSize() const override;
 
-        bool checkFoodCollision(const Food::food &food, std::list<bodyPart>::iterator &it);
-        bool foodHeadCollision(const Food::food &food);
-        bool foodBodyCollision(const Food::food &food);
+        bool collision(const gameObject &obj, std::list<bodyPart>::iterator &it);
+        bool headCollision(const gameObject &obj);
+        bool bodyCollision(const gameObject &obj);
 
     private:
         std::list<bodyPart> body;

@@ -15,6 +15,7 @@ void initGame()
 
     int score = 0;
     std::string textScore;
+    std::string status{"OK, "};
 
     float snakeSize = 25.0f;
 
@@ -47,7 +48,11 @@ void initGame()
             timePassed = 0.0f;
             snake.move(speed);
 
-            if (snake.foodHeadCollision(food))
+
+            if (map.mapCollision(snake, UNBLOCKED, dir))
+                status = "LOSE, ";
+
+            if (snake.headCollision(food))
             {
                 ++score;
                 snake.add(dir);
@@ -64,7 +69,7 @@ void initGame()
         snake.draw();
         food.draw();
 
-        textScore = TextFormat("Score: %i", score);
+        textScore = status+TextFormat("Score: %i", score);
         DrawText(textScore.c_str(), winWidth/2-MeasureText(textScore.c_str(), 20), 5, 20, LIGHTGRAY);
 
         DrawFPS(10, 10);

@@ -7,6 +7,7 @@
 #include <list>
 #include <memory>
 #include <random>
+#include <exception>
 
 enum direction
 {
@@ -14,6 +15,12 @@ enum direction
     DIR_DOWN,
     DIR_LEFT,
     DIR_RIGHT,
+};
+
+enum mapParameter
+{
+    BLOCKED,
+    UNBLOCKED,
 };
 
 #endif //SNAKE_DECLARATIONS_H

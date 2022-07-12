@@ -13,6 +13,8 @@ public:
     void draw() override;
     Vector2 getMapSize() const;
 
+    bool mapCollision(gameObject &snake, mapParameter par, direction dir);
+
 private:
     Vector2 size;
 
