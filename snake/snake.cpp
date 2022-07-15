@@ -46,6 +46,20 @@ namespace Snake //class snake
         posY = body.front().getY();
     }
 
+    void snake::moveOffset(Vector2 offset)
+    {
+        for (auto &el: body)
+            el.moveOffset(offset);
+    }
+
+    void snake::sideMove(Vector2 offset)
+    {
+        posX += offset.x;
+        posY += offset.y;
+
+        body.front().move(Vector2{posX, posY});
+    }
+
     void snake::add(direction dir)
     {
         if (body.begin() == body.end())

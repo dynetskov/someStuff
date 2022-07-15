@@ -20,6 +20,12 @@ public:
         posY = pos.y;
     }
 
+    virtual void moveOffset(Vector2 offset)
+    {
+        posX += offset.x;
+        posY += offset.y;
+    }
+
     virtual float getX() const
     {
         return posX;

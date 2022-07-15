@@ -1,4 +1,5 @@
 #include "map.h"
+#include "snake.h"
 
 map::map(float _x, float _y, Vector2 _size, Color _color)
         : gameObject(_x, _y, _color), size(_size)
@@ -25,48 +26,40 @@ bool map::mapCollision(gameObject &snake, mapParameter par, direction dir)
     if (!snake.isSnake())
         throw std::logic_error("Invalid object type in method mapCollision. Should be Snake type");
 
-    //if (CheckCollisionRecs(Rectangle{posX, posY, size.x, size.y},
-    //                       Rectangle{snake.getX(), snake.getY(), snake.getSize(), snake.getSize()}))
     Rectangle mapRec{posX, posY, size.x, size.y};
     Vector2 point;
-    Vector2 offset;
-    Vector2 prev;
+    Vector2 newPos;
+
+    point.x = snake.getX();
+    point.y = snake.getY();
 
     switch (dir)
     {
         case DIR_UP:
-            point.x = snake.getX();
-            point.y = snake.getY();
-            offset = Vector2{0, size.y-10};
-            prev = Vector2{0, snake.getSize()};
+
+            newPos = Vector2{0, size.y-10};
             break;
         case DIR_DOWN:
-            point.x = snake.getX();
-            point.y = snake.getY()+snake.getSize();
-            offset = Vector2{0, -(size.y-10)};
+            point.y += snake.getSize();
+            newPos = Vector2{0, -(size.y-10)};
             break;
         case DIR_LEFT:
-            point.x = snake.getX();
-            point.y = snake.getY();
-            offset = Vector2{size.x-10, 0};
+            newPos = Vector2{size.x-10, 0};
             break;
         case DIR_RIGHT:
-            point.x = snake.getX()+snake.getSize();
-            point.y = snake.getY();
-            offset = Vector2{-(size.x-10), 0};
+            point.x += snake.getSize();
+            newPos = Vector2{-(size.x-10), 0};
             break;
     }
 
     if (!CheckCollisionPointRec(point, mapRec))
     {
         if (par == BLOCKED)
-        {
             return true;
-        }
 
-        //offset.y -= snake.getSize();
-        //snake.move(prev);
-        snake.move(offset);
+        auto cast_snake = dynamic_cast<Snake::snake*>(&snake);
+
+        cast_snake->sideMove(newPos);
     }
 
     return false;
