@@ -25,7 +25,7 @@ namespace Snake
         snake(float _x, float _y, float _size = 25.0f, Color _color = RAYWHITE);
         ~snake();
 
-        bool isSnake() override;
+        bool isSnake() const override;
 
         void draw() override;
         void move(Vector2 direction) override;

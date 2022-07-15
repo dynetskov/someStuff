@@ -49,8 +49,9 @@ void initGame()
             snake.move(speed);
 
 
-            if (map.mapCollision(snake, UNBLOCKED, dir))
+            if (map.mapCollision(snake, UNBLOCKED, dir) || snake.bodyCollision(snake))
                 status = "LOSE, ";
+            else status = "OK, ";
 
             if (snake.headCollision(food))
             {

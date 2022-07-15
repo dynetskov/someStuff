@@ -13,7 +13,7 @@ namespace Snake //class snake
         std::cout << "Snake Deleted" << std::endl;
     }
 
-    bool snake::isSnake()
+    bool snake::isSnake() const
     {
         return true;
     }
@@ -124,6 +124,9 @@ namespace Snake //class snake
     bool snake::bodyCollision(const gameObject &obj)
     {
         auto it = body.begin();
+
+        if (obj.isSnake())
+            it++;
 
         while (it != body.end())
         {

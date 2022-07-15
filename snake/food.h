@@ -21,7 +21,7 @@ namespace Food
         void replace(gameObject &snake, const map &map);
         float getSize() const override;
 
-        bool isFood() override;
+        bool isFood() const override;
 
     private:
         float size;

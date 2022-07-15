@@ -36,12 +36,12 @@ public:
         return posY;
     }
 
-    virtual bool isSnake()
+    virtual bool isSnake() const
     {
         return false;
     }
 
-    virtual bool isFood()
+    virtual bool isFood() const
     {
         return false;
     }

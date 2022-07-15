@@ -44,7 +44,7 @@ namespace Food
         return size;
     }
 
-    bool food::isFood()
+    bool food::isFood() const
     {
         return true;
     }
